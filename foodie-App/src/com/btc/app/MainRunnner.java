@@ -47,6 +47,9 @@ public class MainRunnner {
 					throw new IllegalArgumentException("Invalid Option: " + option);
 				}
 				}
+				else {
+					System.out.println("Invalid User ID and Password");
+				}
 			default:
 				throw new IllegalArgumentException("Invalid Option: " + choice);
 			}

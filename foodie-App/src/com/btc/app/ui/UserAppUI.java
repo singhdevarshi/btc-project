@@ -234,15 +234,13 @@ public class UserAppUI {
 			String email=scanner.next()+scanner.nextLine();
 			System.out.print("Password : ");
 			String password=scanner.next()+scanner.nextLine();
-			boolean login=false;
 			try {
-				login = service.userLogIn(email, password);
-				
+				return service.userLogIn(email, password);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return login;
+			return false;
 		}
 
 }

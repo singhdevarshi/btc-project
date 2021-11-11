@@ -107,7 +107,7 @@ public class UserDaoJdbcImpl implements UserDao{
 			int insertedRowCount = smt.executeUpdate();
 			if(insertedRowCount>0) {
 				return user;
-			} 
+			}  
 			return null;
 		}
 
@@ -136,9 +136,27 @@ public class UserDaoJdbcImpl implements UserDao{
 		}
 
 		@Override
-		public boolean userLogIn(String userEmail, String password) throws SQLException {
+		public boolean userLogIn(String userEmail, String password) {
 			// TODO Auto-generated method stub
-			return false;
+			String query="select * from user where email=? and password=?";
+			try {
+				smt=con.prepareStatement(query);
+				smt.setString(1, userEmail);
+				smt.setString(2, password);
+				
+				ResultSet queryResult = smt.executeQuery();
+				
+				
+				if(queryResult.next()) {
+					return true;
+				}
+				
+			} catch (SQLException  | NullPointerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+				return false;
 		}
 
 }
