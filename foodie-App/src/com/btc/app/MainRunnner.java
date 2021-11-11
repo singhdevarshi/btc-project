@@ -19,7 +19,7 @@ public class MainRunnner {
 				appUI.addUser();
 				break;
 			case 2:
-				
+				if(appUI.uesrLogIn()) {
 				System.out.println("Enter a option :\n [1 - Add User] \n [2 - Search User] \n [3 - Delete User] \n [4 - Update User] \n [5 - Display All Users] \n [0 - Exit]");
 				int option = scanner.nextInt();
 				
@@ -45,6 +45,7 @@ public class MainRunnner {
 
 				default:
 					throw new IllegalArgumentException("Invalid Option: " + option);
+				}
 				}
 			default:
 				throw new IllegalArgumentException("Invalid Option: " + choice);

@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return daoObj.deleteUserById(userId);
 	}
+	
+	@Override
+	public boolean userLogIn(String userEmail, String password) throws SQLException {
+		// TODO Auto-generated method stub
+		return daoObj.userLogIn(userEmail,password);
+	}
 
 	@Override
 	public User updateUser(User user) throws SQLException {

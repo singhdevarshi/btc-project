@@ -11,6 +11,8 @@ public User addUser(User user) throws SQLException;
 	
 	public boolean deleteUserById(int userId) throws SQLException;
 	
+	public boolean userLogIn(String email,String password) throws SQLException;
+	
 	public User updateUser(User user) throws SQLException;
 	
 	public List<User> getAllUser() throws SQLException;

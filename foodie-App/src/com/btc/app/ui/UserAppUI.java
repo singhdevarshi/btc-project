@@ -227,5 +227,22 @@ public class UserAppUI {
 			}
 			
 		}
+		
+		public boolean uesrLogIn()
+		{
+			System.out.print("Email : ");
+			String email=scanner.next()+scanner.nextLine();
+			System.out.print("Password : ");
+			String password=scanner.next()+scanner.nextLine();
+			boolean login=false;
+			try {
+				login = service.userLogIn(email, password);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return login;
+		}
 
 }

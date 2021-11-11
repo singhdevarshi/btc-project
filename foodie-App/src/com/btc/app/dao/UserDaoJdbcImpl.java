@@ -107,7 +107,7 @@ public class UserDaoJdbcImpl implements UserDao{
 			int insertedRowCount = smt.executeUpdate();
 			if(insertedRowCount>0) {
 				return user;
-			}
+			} 
 			return null;
 		}
 
@@ -133,6 +133,12 @@ public class UserDaoJdbcImpl implements UserDao{
 			}
 			
 			return employee;
+		}
+
+		@Override
+		public boolean userLogIn(String userEmail, String password) throws SQLException {
+			// TODO Auto-generated method stub
+			return false;
 		}
 
 }
