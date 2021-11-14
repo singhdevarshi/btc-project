@@ -6,7 +6,17 @@ public class Favourite {
 	private int favId;
 	private int userId;
 	private String restoName;
-	
+	 
+	public Favourite()
+	{
+		
+	}
+	public Favourite(int favId, int userId, String restoName) {
+		super();
+		this.favId = favId;
+		this.userId = userId;
+		this.restoName = restoName;
+	}
 	public int getFavId() {
 		return favId;
 	}

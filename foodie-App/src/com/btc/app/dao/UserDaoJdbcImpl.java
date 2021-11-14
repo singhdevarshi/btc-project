@@ -49,6 +49,7 @@ public class UserDaoJdbcImpl implements UserDao{
 		public User searchUserById(int userId) throws SQLException  {
 	      
 			String query="select * from user where uid=?";
+			con=ConnectionUtil.getDbConnection();
 			smt=con.prepareStatement(query);
 			
 			smt.setInt(1, userId);	

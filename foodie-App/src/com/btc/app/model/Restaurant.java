@@ -6,6 +6,20 @@ public class Restaurant {
 	private String restaurantLocation;
 	private String restaurantType;
 	private String restaurantCategory;
+	
+	public Restaurant() {
+		
+	}
+	
+	public Restaurant(int restaurantID, String restaurantName, String restaurantLocation, String restaurantType,
+			String restaurantCategory) {
+		super();
+		this.restaurantID = restaurantID;
+		this.restaurantName = restaurantName;
+		this.restaurantLocation = restaurantLocation;
+		this.restaurantType = restaurantType;
+		this.restaurantCategory = restaurantCategory;
+	}
 	public int getRestaurantID() {
 		return restaurantID;
 	}
