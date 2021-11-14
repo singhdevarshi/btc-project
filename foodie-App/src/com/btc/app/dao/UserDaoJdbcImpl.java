@@ -119,7 +119,7 @@ public class UserDaoJdbcImpl implements UserDao{
 			
 			ResultSet rst = smt.executeQuery();
 			
-			List<User> employee=new ArrayList<User>();
+			List<User> user=new ArrayList<User>();
 			
 			while(rst.next()) {
 				User us = new User();
@@ -129,34 +129,33 @@ public class UserDaoJdbcImpl implements UserDao{
 				us.setUserEmail(rst.getString("email"));
 				us.setPhoneNo(rst.getInt("phone_no"));
 				us.setPassword(rst.getString("password"));
-				employee.add(us);
+				user.add(us);
 			}
 			
-			return employee;
+			return user;
 		}
 
 		@Override
-		public boolean userLogIn(String userEmail, String password) {
+		public boolean userLogIn(String userEmail, String upassword) {
 			// TODO Auto-generated method stub
 			String query="select * from user where email=? and password=?";
 			try {
+				 con=ConnectionUtil.getDbConnection();
 				smt=con.prepareStatement(query);
 				smt.setString(1, userEmail);
-				smt.setString(2, password);
-				
+				smt.setString(2, upassword);
 				ResultSet queryResult = smt.executeQuery();
-				
-				
 				if(queryResult.next()) {
 					return true;
 				}
-				
-			} catch (SQLException  | NullPointerException e) {
+				else {
+					return false;
+				}
+			} catch (SQLException | NullPointerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-				return false;
+			return false;
 		}
 
 }
